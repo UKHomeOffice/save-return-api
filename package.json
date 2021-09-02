@@ -1,0 +1,35 @@
+{
+  "name": "save-return-api",
+  "version": "1.0.0",
+  "description": "An API for save and return for recordsin a SQL database",
+  "main": "index.js",
+  "engines": {
+    "node": "^14.15.0"
+  },
+  "scripts": {
+    "start": "node ./server",
+    "test:lint": "eslint . --config ./node_modules/eslint-config-hof/default.js",
+    "db:setup": "yarn run db:migrate && yarn run db:seed",
+    "db:test": "yarn run db:setup && yarn run db:rollback",
+    "db:migrate": "knex migrate:latest",
+    "db:rollback": "knex migrate:rollback",
+    "db:seed": "knex seed:run",
+    "test:snyk": "snyk config set api=SNYK_TOKEN && snyk test"
+  },
+  "author": "Sulthan Ahmed & Alex Swann",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "knex": "^0.21.2",
+    "morgan": "^1.10.0",
+    "morgan-json": "^1.1.0",
+    "pg": "^8.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-hof": "^1.2.1",
+    "snyk": "^1.696.0"
+  }
+}
