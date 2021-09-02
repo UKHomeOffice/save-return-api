@@ -27,8 +27,8 @@ const findById = (id, email) => knex.select(selectableProps)
 const create = props => {
   if (props.id) {
     return knex(tableName).where({
-        id: props.id
-      })
+      id: props.id
+    })
       // eslint-disable-next-line camelcase
       .update({session: props.session, updated_at: knex.fn.now()})
       .returning(selectableProps)

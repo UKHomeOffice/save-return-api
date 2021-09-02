@@ -28,6 +28,24 @@ steps:
         - master
       event: [push, pull_request]
 
+  - name: setup
+    pull: if-not-exists
+    image: node:14
+    commands:
+      - yarn install --frozen-lockfile
+    when:
+      branch: master
+      event: [push, pull_request]
+
+  - name: linting
+    pull: if-not-exists
+    image: node:14
+    commands:
+      - yarn run test:lint
+    when:
+      branch: master
+      event: [push, pull_request]
+
   - name: build_image
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
     commands:
@@ -73,7 +91,7 @@ steps:
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
     pull: always
     environment:
-      IMAGE_NAME: modern-slavery-alerts:${DRONE_COMMIT_SHA}
+      IMAGE_NAME: save-return-api:${DRONE_COMMIT_SHA}
       LOCAL_IMAGE: true
       TOLERATE: medium
       WHITELIST_FILE: hof-services-config/Modern_Slavery_Nrm/anchore-cve-exceptions.txt
@@ -123,7 +141,7 @@ steps:
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
     pull: always
     environment:
-      IMAGE_NAME: modern-slavery-alerts:${DRONE_COMMIT_SHA}
+      IMAGE_NAME: save-return-api:${DRONE_COMMIT_SHA}
       LOCAL_IMAGE: true
       TOLERATE: medium
       WHITELIST_FILE: hof-services-config/Modern_Slavery_Nrm/anchore-cve-exceptions.txt

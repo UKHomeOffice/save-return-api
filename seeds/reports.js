@@ -1,11 +1,11 @@
 'use strict';
 
 // eslint-disable-next-line func-names
-exports.seed = function(knex) {
+exports.seed = function (knex) {
   // Deletes ALL existing entries
   return knex('reports').del()
     // eslint-disable-next-line func-names
-    .then(function() {
+    .then(function () {
       // Inserts seed entries
       return knex('reports').insert([
         {id: 1, email: 'dev@testing.com', session: '{escaped json object}'},
