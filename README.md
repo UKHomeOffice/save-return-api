@@ -24,9 +24,15 @@ CREATE ROLE knex WITH LOGIN PASSWORD 'knex';
 ALTER ROLE knex WITH SUPERUSER;
 CREATE DATABASE knex_session;
 \q
-yarn run db:setup
 ```
 If you download Postico for Mac (https://eggerapps.at/postico/), you can then inspect your postgres DB for example and look at the test entries inserted into the test table 'Reports'.
+
+You then need to use a knexfile with migrations and seeds folders to populate your database.
+The ms-migrations repo which is used for migrations in the Modern Slavery service (https://github.com/UKHomeOffice/ms-migrations) can be used as a test example and is included in this project. You can run
+```
+yarn run db:setup
+```
+from that repo to setup your database.
 
 ## Install & Run <a name="install-and-run"></a>
 The application can be run on your local machine

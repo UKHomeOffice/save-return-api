@@ -2079,6 +2079,14 @@ morgan@^1.10.0:
     on-finished "~2.3.0"
     on-headers "~1.0.2"
 
+ms-migrations@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/ms-migrations/-/ms-migrations-1.0.2.tgz#6347bddefa7e2e3246184ae66eb5474ec23dd6ea"
+  integrity sha512-cjuJ6fKHjTSuN5KfdD889B2Y/6Iw73bg0xjMwehyaOmOGdg0wZLYw8IK+37XBGwWX2pQFBniw7VlcJZHz75GBA==
+  dependencies:
+    knex "^0.21.2"
+    pg "^8.3.0"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
