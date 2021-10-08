@@ -18,7 +18,8 @@ module.exports = {
     }
   },
   production: {
-    client: process.env.CLIENT || 'postgresql',
+    client: 'pg',
+    version: '8.7.1',
     connection: {
       host: process.env.DB_HOST,
       user: process.env.DB_USER,
