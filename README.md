@@ -5,6 +5,9 @@ Provides a service layer to read, create and delete reports from a SQL table.
 
 **Saving:** The main application will send the data to this service as an end point.  This service will connect to a database and store that data and respond back to the main application if successful
 
+## Database connection
+This repo uses ms-migrations as default to connect to postgres. You could supply a different dependency to connect to a DB if you wanted to using the `MIGRATIONS_REPO` environmental variable. Ms-migrations uses knex which, if NODE_ENV is not set, will try to connect to a localhost instance of postgres. If it is set, it will try to use the below environmental variables `DB_HOST` etc... to connect to a formal DB using the proper credentials.
+
 ## Env Vars
 You can set the following to specific how you want your results to look:
 - `SERVICE_TYPE` - This specifies what service you are using the lookup UI for. The default is for the modern slavery service. But additional templates could be created which this drives.
