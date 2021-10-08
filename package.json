@@ -1,6 +1,6 @@
 {
   "name": "save-return-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "An API for save and return for recordsin a SQL database",
   "main": "index.js",
   "engines": {
