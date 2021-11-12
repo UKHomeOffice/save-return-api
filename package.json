@@ -20,7 +20,7 @@
     "knex": "^0.95.11",
     "morgan": "^1.10.0",
     "morgan-json": "^1.1.0",
-    "ms-migrations": "^2.0.0"
+    "ms-schema": "^1.2.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
