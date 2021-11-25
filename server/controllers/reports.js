@@ -2,8 +2,10 @@
 
 const Reports = require('../models/reports');
 
+const decodeEmail = email => email.includes('@') ? email : Buffer.from(email, 'hex').toString();
+
 const getReports = (req, res, next) => {
-  const email = req.params.email;
+  const email = decodeEmail(req.params.email);
 
   Reports.findByEmail(email)
     .then(user => res.json(user))
@@ -12,7 +14,7 @@ const getReports = (req, res, next) => {
 
 const getId = (req, res, next) => {
   const id = req.params.id;
-  const email = req.params.email;
+  const email = decodeEmail(req.params.email);
 
   Reports.findById(id, email)
     .then(session => res.json(session))
@@ -31,7 +33,7 @@ const create = (req, res, next) => {
 
 const del = (req, res, next) => {
   const id = req.params.id;
-  const email = req.params.email;
+  const email = decodeEmail(req.params.email);
 
   Reports.del(id, email)
     .then(res.sendStatus(200))
