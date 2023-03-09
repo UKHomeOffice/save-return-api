@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports = {
+  upload: {
+    maxFileSize: process.env.MAX_FILE_SIZE || '100kb'
+  },
   migrationsRepo: process.env.MIGRATIONS_REPO || 'ms-schema',
   port: process.env.PORT || 3000,
   tableName: process.env.TABLE_NAME || 'reports',
