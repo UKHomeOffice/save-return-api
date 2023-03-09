@@ -16,7 +16,7 @@ const format = json({
 const app = express();
 const { getReports, getId, create, del } = require(`./controllers/${tableName}`);
 
-app.use(bodyParser.json({ limit: config.upload.maxFileSize }));
+app.use(bodyParser.json({ limit: config.maxPayloadSize }));
 app.use(morgan(format));
 
 app.get(`/${tableName}/:email`, getReports);
