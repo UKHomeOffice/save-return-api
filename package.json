@@ -7,6 +7,7 @@
     "node": "^14.15.0"
   },
   "scripts": {
+    "build": "bin/pre-build.sh",
     "start": "node ./server",
     "test:lint": "eslint . --config ./node_modules/eslint-config-hof/default.js",
     "test:snyk": "snyk config set api=SNYK_TOKEN && snyk test"

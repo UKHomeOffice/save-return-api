@@ -60,3 +60,13 @@ Then to run the service use:
 
 With the server running you can run the main app with save and return lookup UI functionality.
 See details of how to do this in [modern slavery](https://github.com/UKHomeOffice/modern-slavery) application
+
+# Troubleshooting
+
+This package uses optional schemas to extend the functionality of the save-return-api
+In order to pull in these schemas dynamically, a pre-build script is used which will clone the schemas locally before running
+The script is called /bin/pre-build.sh
+If you get permission denied errors, you will likely need to give your OS permission to execute the script
+
+Running the below command from the root directory should suffice:
+chmod +x ./bin/pre-build.sh
