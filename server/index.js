@@ -39,11 +39,7 @@ if (schemaConfig) {
   {
     // Regster each endpoint
     let model = genericModel.configure(schemaConfig.schemaName, schemaConfig.models[x]);
-    let controller = genericController.configure(model, app);
-
-    // And reguster any generic routes
-    additionalControllers.push(controller);
-;    //app.post(schemaConfig.endpoints[x].route, generic.create(schemaConfig.endpoints[x].process));
+    genericController.configure(model, app);
   }    
 }
 app.listen(config.port);

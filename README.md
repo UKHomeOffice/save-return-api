@@ -8,6 +8,50 @@ Provides a service layer to read, create and delete reports from a SQL table.
 ## Database connection
 This repo uses ms-schema as default to connect to postgres. You could supply a different dependency to connect to a DB if you wanted to using the `MIGRATIONS_REPO` environmental variable. Ms-schema uses knex which, if NODE_ENV is not set, will try to connect to a localhost instance of postgres. If it is set, it will try to use the below environmental variables `DB_HOST` etc... to connect to a formal DB using the proper credentials.
 
+## Expanding the database with external schemas
+We now have the ability to dynamically create models, controllers and routes based on external schemas.
+
+To do this, you will first need to add some small configuration to the schema you wish to pull in.
+Open the schema (eg. asc-schema) and add the following properties to the config.js
+
+  schemaName: 'asc-schema', //Or whatever the schema name is
+  models: [
+    //This is an array stating the entities you wish to create
+    {
+      // A unique string which will be used for the DB table
+      tableName: 'candidateapplications',
+      // The fields we are allowed to return from the database
+      // Useful to exclude certain sensitive information such as passwords etc
+      selectableProps: [
+        'id',
+        'email',
+        'nino',
+        'recruitmenttype',
+        'created_at',
+        'updated_at'
+      ]
+    }
+  ]
+
+Now back in the save-return-api you will need to tell the API to pull in this schema. To do this, set an ADDITIONAL_SCHEMA environent variable to the name of the schema npm package you would like to pull in (for example, ms-schema or asc-schema) 
+
+You can then run npm run build which will check for this env var and npm install the appropriate package - Note that this will change your package.json and package.lock, so ensure you npm uninstall before commiting any changes!
+
+You can then run the API using the normal npm run start. As part of the index.js, the API will dynamically create endpoints according to the info supplied in the schema config.
+
+You should then be able to access the following endpoints:
+
+  Create a new entity based on the req.body
+  POST http(s)://<api>:<port>/<entityname>/create
+
+  Get an entity based on its id
+  GET http(s)://<api>:<port>/<entityname>/<id>
+
+  Query for entites based on the field name and value
+  GET http(s)://<api>:<port>/<entityname>/<fieldname>/<value>
+
+This potentially means we can remove the ms-schema dependency and have a dynamic schema instead.
+
 ## Env Vars
 You can set the following to specific how you want your results to look:
 - `SERVICE_TYPE` - This specifies what service you are using the lookup UI for. The default is for the modern slavery service. But additional templates could be created which this drives.
