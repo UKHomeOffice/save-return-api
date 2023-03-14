@@ -1,5 +1,4 @@
 'use strict';
-let model;
 
 const configure = (model, app) => {
   this.model = model;

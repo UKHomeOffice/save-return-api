@@ -45,8 +45,8 @@ this.create = props => {
     .timeout(timeout);
 };
 
-this.del = (id, email) => knex(self.model.tableName)
-  .where({ id, email })
+this.del = (id) => knex(self.model.tableName)
+  .where({ id })
   .del();
 
 module.exports = self;
