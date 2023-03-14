@@ -10,27 +10,27 @@ const configure = (model, app) => {
 }
 
 const findByQuery = (req,res,next) => {
-  const fieldname = req.query.fieldname;
-  const value = req.query.value;
+  const fieldname = req.params.fieldname;
+  const value = req.params.value;
 
-  this.model.findByQuery(session.fieldname, session.value)
+  this.model.findByQuery(fieldname, value)
     .then(result => {
       res.json(result);
     })
-    .catch(function (err) {
+    .catch(err => {
       console.log(err);
       next();
     });
 };
 
 const findById = (req,res,next) => {
-  const id = req.query.id;
+  const id = req.params.id;
 
   this.model.findById(id)
     .then(result => {
       res.json(result);
     })
-    .catch(function (err) {
+    .catch(err => {
       console.log(err);
       next();
     });

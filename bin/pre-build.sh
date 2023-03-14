@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Pre-Build Started"
-echo $ADDITIONAL_SCHEMA
+echo "Additional Schema: $ADDITIONAL_SCHEMA"
 if [ -z "$ADDITIONAL_SCHEMA" ]
 then
   echo "No Additional Schemas Configured"

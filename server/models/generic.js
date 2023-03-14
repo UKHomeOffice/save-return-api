@@ -18,24 +18,24 @@ this.configure = (schemaName, model) => {
   return this;
 }
 
-this.findByQuery = (fieldname, value) => knex.select(model.selectableProps)
-  .from(tableName)
-  .where({ fieldname: value })
+this.findByQuery = (fieldname, value) => knex.select(self.model.selectableProps)
+  .from(self.model.tableName)
+  .where({ [fieldname]: value })
   .timeout(timeout);
 
-this.findById = (id) => knex.select(model.selectableProps)
-  .from(tableName)
+this.findById = (id) => knex.select(self.model.selectableProps)
+  .from(self.model.tableName)
   .where({ id })
   .timeout(timeout);
 
 this.create = props => {
   if (props.id) {
-    return knex(self.model.getTableName()).where({
+    return knex(self.model.tableName).where({
       id: props.id
     })
       // eslint-disable-next-line camelcase
       .update({session: props.session, updated_at: knex.fn.now()})
-      .returning(self.  model.selectableProps)
+      .returning(self.model.selectableProps)
       .timeout(timeout);
   }
 
