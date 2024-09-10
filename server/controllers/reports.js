@@ -6,9 +6,14 @@ const decodeEmail = email => email.includes('@') ? email : Buffer.from(email, 'h
 
 const getReports = (req, res, next) => {
   const email = decodeEmail(req.params.email);
+  console.log("this is enail from browser"+ email)
 
   Reports.findByEmail(email)
-    .then(user => res.json(user))
+    .then(user => {
+      console.log("this is the user"+ JSON.stringify(user, null, 2))
+      res.json(user)
+
+    })
     .catch(next);
 };
 
@@ -17,7 +22,11 @@ const getId = (req, res, next) => {
   const email = decodeEmail(req.params.email);
 
   Reports.findById(id, email)
-    .then(session => res.json(session))
+    .then(session =>  {
+      console.log("this is the session: " + session)
+      res.json(session)
+
+    })
     .catch(next);
 };
 

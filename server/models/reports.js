@@ -16,12 +16,14 @@ const selectableProps = [
 
 const findByEmail = email => knex.select(selectableProps)
   .from(tableName)
-  .where({ email })
+  // .where({ email })
+  .where('email', 'ILIKE', `%${email}%`)
   .timeout(timeout);
 
 const findById = (id, email) => knex.select(selectableProps)
   .from(tableName)
-  .where({ id, email })
+  .where({ id })
+  .where('email', 'ILIKE', `%${email}%`)
   .timeout(timeout);
 
 const create = props => {
@@ -34,15 +36,21 @@ const create = props => {
       .returning(selectableProps)
       .timeout(timeout);
   }
-
+  //confirm when we fill out reports for both email addreses all the information is saved in both email addresses accounts
   return knex.insert(props)
     .returning(selectableProps)
     .into(tableName)
     .timeout(timeout);
 };
+// confirm delete it working correctlky
 
 const del = (id, email) => knex(tableName)
-  .where({ id, email })
+  // .where({ id, email })
+  .where(function () {
+    this.where({ id }).where('email', 'ILIKE', `%${email}%`);
+  })
+  // .where({ id })
+  // .where('email', 'ILIKE', `%${email}%`)
   .del();
 
 module.exports = {
