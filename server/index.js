@@ -14,7 +14,7 @@ const format = json({
   timestamp: ':date[iso]'
 });
 const app = express();
-const { getReports, getId, create, del } = require(`./controllers/${tableName}`);
+const { getReports, getId, create, del, patch } = require(`./controllers/${tableName}`);
 
 app.use(bodyParser.json({ limit: config.maxPayloadSize }));
 app.use(morgan(format));
@@ -23,5 +23,6 @@ app.get(`/${tableName}/:email`, getReports);
 app.get(`/${tableName}/:email/:id`, getId);
 app.post(`/${tableName}`, create);
 app.delete(`/${tableName}/:email/:id`, del);
+app.patch(`/${tableName}/:email/:id`, patch);
 
 app.listen(config.port);

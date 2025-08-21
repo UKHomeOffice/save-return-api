@@ -11,7 +11,8 @@ const selectableProps = [
   'id',
   'session',
   'created_at',
-  'updated_at'
+  'updated_at',
+  'submitted_at'
 ];
 
 const findByEmail = email => knex.select(selectableProps)
@@ -45,9 +46,17 @@ const del = (id, email) => knex(tableName)
   .where({ id, email })
   .del();
 
+const patch = (id, email, updates) => {
+  return knex(tableName)
+    .where({ id, email })
+    .update(updates)
+    .timeout(timeout);
+};
+
 module.exports = {
   findByEmail,
   findById,
   create,
-  del
+  del,
+  patch
 };

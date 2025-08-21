@@ -20,7 +20,7 @@
     "knex": "^0.95.11",
     "morgan": "^1.10.0",
     "morgan-json": "^1.1.0",
-    "ms-schema": "^1.2.0"
+    "modern-slavery-schema": "^1.6.0-submitted-at-beta.1"
   },
   "devDependencies": {
     "eslint": "^7.32.0",

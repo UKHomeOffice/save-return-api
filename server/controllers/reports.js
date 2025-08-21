@@ -40,9 +40,21 @@ const del = (req, res, next) => {
     .catch(next);
 };
 
+const patch = (req, res, next) => {
+  const id = req.params.id;
+  const email = decodeEmail(req.params.email);
+  const updates = req.body;
+
+  Reports.patch(id, email, updates)
+    .then(res.sendStatus(200))
+    .catch(next);
+};
+
+
 module.exports = {
   getReports,
   getId,
   create,
-  del
+  del,
+  patch
 };
