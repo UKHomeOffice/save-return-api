@@ -1,10 +1,10 @@
 {
   "name": "save-return-api",
   "version": "2.0.0",
-  "description": "An API for save and return for records in a SQL database",
+  "description": "An API for save and return for recordsin a SQL database",
   "main": "index.js",
   "engines": {
-    "node": "^24.6.0"
+    "node": "^14.15.0"
   },
   "scripts": {
     "start": "node ./server",
@@ -14,17 +14,17 @@
   "author": "Sulthan Ahmed & Alex Swann",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^2.2.0",
-    "express": "^5.1.0",
-    "jquery": "^3.7.1",
-    "knex": "^3.1.0",
-    "modern-slavery-schema": "1.6.0-submitted-at-beta.2",
-    "morgan": "^1.10.1",
-    "morgan-json": "^1.1.0"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "knex": "^0.95.11",
+    "morgan": "^1.10.0",
+    "morgan-json": "^1.1.0",
+    "modern-slavery-schema": "^1.6.0-submitted-at-beta.1"
   },
   "devDependencies": {
-    "eslint": "^8.53.0",
-    "eslint-config-hof": "^1.3.4",
-    "snyk": "^1.1298.3"
+    "eslint": "^7.32.0",
+    "eslint-config-hof": "^1.2.2",
+    "snyk": "^1.696.0"
   }
 }
