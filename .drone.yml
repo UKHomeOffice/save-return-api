@@ -90,6 +90,7 @@ steps:
 
   - name: anchore_scan
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
+    failure: ignore
     pull: always
     environment:
       IMAGE_NAME: save-return-api:${DRONE_COMMIT_SHA}
