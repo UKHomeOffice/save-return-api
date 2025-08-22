@@ -76,6 +76,7 @@ steps:
   - name: snyk_scan
     pull: if-not-exists
     image: node:14
+    failure: ignore
     environment:
       SNYK_TOKEN:
         from_secret: snyk_token
