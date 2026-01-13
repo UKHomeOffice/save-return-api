@@ -1,0 +1,9 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.22.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-MORGANJSON-2976193: 
+    - morgan-json@1.1.0:
+        reason: No direct upgrade or patch available
+        expires: '2026-06-07T00:00:00.000Z'
+patch: {}
