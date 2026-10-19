@@ -16,7 +16,7 @@
     "body-parser": "^2.2.1",
     "express": "^5.2.1",
     "jquery": "^3.7.1",
-    "knex": "^2.5.1",
+    "knex": "^3.3.0",
     "morgan": "^1.12.1",
     "morgan-json": "^1.1.0",
     "ms-schema": "^1.6.2"
