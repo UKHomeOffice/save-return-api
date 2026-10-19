@@ -1,21 +1,31 @@
-FROM node:24.12.0-alpine3.23@sha256:c720a25dd3a78e6274d55267e76d89e5c096c46940b5ea83f7a99978feb0b514
+# -----------------------------
+# Stage 1: Builder
+# -----------------------------
+FROM quay.io/ukhomeofficedigital/hof-nodejs:24.21.0-alpine3.24-v9@sha256:baf6fee695730fcede4a6dd89390b1756ce5b26ce45b39cca3c7cdc63e91a443 AS builder
+
+USER root
+WORKDIR /app
+
+COPY . /app
+
+RUN yarn install --frozen-lockfile --production --ignore-optional --ignore-scripts
+
+# -----------------------------
+# Stage 2: Runtime
+# -----------------------------
+FROM quay.io/ukhomeofficedigital/hof-nodejs:24.21.0-alpine3.24-v9@sha256:baf6fee695730fcede4a6dd89390b1756ce5b26ce45b39cca3c7cdc63e91a443
 
 USER root
 
-# Update package index and upgrade all installed packages
-RUN apk update && apk upgrade --no-cache
-
-# Setup nodejs group & nodejs user
 RUN addgroup --system nodejs --gid 998 && \
     adduser --system nodejs --uid 999 --home /app/ && \
     chown -R 999:998 /app/
 
-USER 999
-
 WORKDIR /app
 
-COPY --chown=999:998 . /app
+COPY --from=builder --chown=999:998 /app/node_modules /app/node_modules
+COPY --from=builder --chown=999:998 /app/. /app
 
-RUN yarn install --frozen-lockfile --production --ignore-optional --ignore-scripts
+USER 999
 
-CMD npm start
+CMD yarn run alerts
