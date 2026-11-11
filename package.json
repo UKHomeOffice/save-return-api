@@ -4,7 +4,7 @@
   "description": "An API for save and return for recordsin a SQL database",
   "main": "index.js",
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=24.22.2"
   },
   "scripts": {
     "start": "node ./server",
@@ -27,9 +27,9 @@
   },
   "resolutions": { 
     "minimist": "1.2.8",
-    "lodash": "4.18.0",
+    "lodash": "4.18.1",
     "path-to-regexp": "8.4.0",
     "proxy-addr": "2.0.8",
-    "qs": "6.16.0"
+    "qs": "6.16.1"
   }
 }
