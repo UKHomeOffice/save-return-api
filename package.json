@@ -4,7 +4,7 @@
   "description": "An API for save and return for recordsin a SQL database",
   "main": "index.js",
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=24.22.2"
   },
   "scripts": {
     "start": "node ./server",
@@ -19,7 +19,7 @@
     "knex": "^2.5.1",
     "morgan": "^1.12.1",
     "morgan-json": "^1.1.0",
-    "ms-schema": "^1.6.2"
+    "ms-schema": "^1.6.3"
   },
   "devDependencies": {
     "eslint": "^8.57.1",
