@@ -1908,7 +1908,7 @@ knex@^2.5.1:
     tarn "^3.0.2"
     tildify "2.0.0"
 
-knex@^3.1.0:
+knex@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/knex/-/knex-3.3.0.tgz#451d24d5670939fc4ce54f2269163dbf2627d682"
   integrity sha512-LgWl031hNuLv9Lhxdd9093zULa2aNcoP04Bk29e5NidgRcEr/T0rAr2WYi4BhjTiCDoQiRU56meUE5rppLKZzQ==
@@ -2051,14 +2051,14 @@ morgan@^1.12.1:
     on-finished "~2.4.1"
     on-headers "~1.1.0"
 
-ms-schema@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/ms-schema/-/ms-schema-1.6.2.tgz#194da72932a8a15d66f031a0ef7c38daceb4c668"
-  integrity sha512-SWg9Rngbke7O4Qsfb0ZjcfoiDvVeGltCD3ke+ZwingwcjxNco6j/G/fdAyGlZ0KthRDdot+y6XeB1VTQMZ1vIw==
+ms-schema@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/ms-schema/-/ms-schema-1.6.3.tgz#d09d528c331a7e7c414c5e8bdfa112e6b376f52b"
+  integrity sha512-J+eWnn5TTM2CXdAWlR5unqSSHJ4PeByJgJSFiSRgJvf0ZOYGkJBcVEVvhElTzMlcOJiKoL84iK4xkoGeq2lxuw==
   dependencies:
-    knex "^3.1.0"
+    knex "^3.3.0"
     knex-migrate "^1.7.4"
-    pg "^8.16.3"
+    pg "^8.23.1"
 
 ms@2.0.0:
   version "2.0.0"
@@ -2306,7 +2306,7 @@ pg-types@2.2.0:
     postgres-date "~1.0.4"
     postgres-interval "^1.1.0"
 
-pg@^8.16.3:
+pg@^8.23.1:
   version "8.23.1"
   resolved "https://registry.yarnpkg.com/pg/-/pg-8.23.1.tgz#e4848051a04aa2f968fd5671d075f89e5e7918b9"
   integrity sha512-aL96AHANtWjPLDOLqnhx+ngp9+UK7ETEU8VJrDCGvsSSi/mGLcWYsS6Herg7lmaBJe4uwrfqsa7gTEFaSizDoQ==
